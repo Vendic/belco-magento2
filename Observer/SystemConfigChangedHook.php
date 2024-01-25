@@ -1,8 +1,8 @@
 <?php
 namespace Belco\Widget\Observer;
- 
+
 use Magento\Framework\Event\ObserverInterface;
- 
+
 class SystemConfigChangedHook implements ObserverInterface
 {
     /**
@@ -19,7 +19,7 @@ class SystemConfigChangedHook implements ObserverInterface
      * @var \Belco\Widget\Helper\Data
      */
     private $helper;
- 
+
     /**
      * @param \Belco\Widget\Helper\Data $widgetHelper
      */
@@ -29,7 +29,7 @@ class SystemConfigChangedHook implements ObserverInterface
         $this->helper = $widgetHelper;
         $this->api = $this->helper->getApi();
     }
- 
+
     /**
      * customer register event handler
      *
@@ -40,7 +40,7 @@ class SystemConfigChangedHook implements ObserverInterface
     {
       try {
         $this->helper->connectShop();
-      } catch (Exception $e) {
+      } catch (\Exception $e) {
         $this->api->logError("Exception: " . $e->getMessage());
         $this->helper->warnAdmin($e->getMessage());
       }

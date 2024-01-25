@@ -1,8 +1,8 @@
 <?php
 namespace Belco\Widget\Observer;
- 
+
 use Magento\Framework\Event\ObserverInterface;
- 
+
 class OrderPlacedHook implements ObserverInterface
 {
     /**
@@ -19,7 +19,7 @@ class OrderPlacedHook implements ObserverInterface
      * @var \Belco\Widget\Helper\Data
      */
     private $helper;
- 
+
     /**
      * @param \Belco\Widget\Helper\Data $widgetHelper
      */
@@ -29,7 +29,7 @@ class OrderPlacedHook implements ObserverInterface
         $this->helper = $widgetHelper;
         $this->api = $this->helper->getApi();
     }
- 
+
     /**
      * customer register event handler
      *
@@ -43,7 +43,7 @@ class OrderPlacedHook implements ObserverInterface
             if ($order) {
                 $this->api->trackOrder($order);
             }
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             $this->api->logError($e->getMessage());
         }
     }

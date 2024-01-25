@@ -1,8 +1,8 @@
 <?php
 namespace Belco\Widget\Observer;
- 
+
 use Magento\Framework\Event\ObserverInterface;
- 
+
 class CustomerSaveHook implements ObserverInterface
 {
     /**
@@ -19,7 +19,7 @@ class CustomerSaveHook implements ObserverInterface
      * @var \Belco\Widget\Helper\Data
      */
     private $helper;
- 
+
     /**
      * @param \Belco\Widget\Helper\Data $widgetHelper
      */
@@ -29,7 +29,7 @@ class CustomerSaveHook implements ObserverInterface
         $this->helper = $widgetHelper;
         $this->api = $this->helper->getApi();
     }
- 
+
     /**
      * customer register event handler
      *
@@ -44,6 +44,6 @@ class CustomerSaveHook implements ObserverInterface
             if ($customer) {
                 $this->api->syncCustomer($customer);
             }
-        } catch (Exception $e) {}
+        } catch (\Exception $e) {}
     }
 }

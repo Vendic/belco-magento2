@@ -1,8 +1,8 @@
 <?php
 namespace Belco\Widget\Observer;
- 
+
 use Magento\Framework\Event\ObserverInterface;
- 
+
 class CustomerDeleteHook implements ObserverInterface
 {
     /**
@@ -19,7 +19,7 @@ class CustomerDeleteHook implements ObserverInterface
      * @var \Belco\Widget\Helper\Data
      */
     private $helper;
- 
+
     /**
      * @param \Belco\Widget\Helper\Data $widgetHelper
      */
@@ -29,7 +29,7 @@ class CustomerDeleteHook implements ObserverInterface
         $this->helper = $widgetHelper;
         $this->api = $this->helper->getApi();
     }
- 
+
     /**
      * customer register event handler
      *
@@ -44,6 +44,6 @@ class CustomerDeleteHook implements ObserverInterface
             if ($customer) {
                 $this->api->deleteCustomer($customer->getId());
             }
-        } catch (Exception $e) {}
+        } catch (\Exception $e) {}
     }
 }
