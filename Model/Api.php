@@ -8,6 +8,10 @@ namespace Belco\Widget\Model;
  */
 class Api
 {
+    /**
+     * @var \Magento\Store\Model\StoreManagerInterface
+     */
+    private $storeManager;
 
     /**
      * @var \Psr\Log\LoggerInterface

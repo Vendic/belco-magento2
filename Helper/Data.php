@@ -7,6 +7,10 @@ namespace Belco\Widget\Helper;
  */
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
+    /**
+     * @var \Psr\Log\LoggerInterface
+     */
+    private $logger;
 
     /**
      * @var \Belco\Widget\Model\Api
@@ -53,7 +57,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
         $this->api = $this->widgetApiFactory->create();
     }
-      
+
     public function connectShop()
     {
         return $this->api->connect();
